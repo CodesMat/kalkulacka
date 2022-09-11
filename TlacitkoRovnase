@@ -1,0 +1,34 @@
+    package model;
+
+import Okno.View;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+
+public class TlacitkoRovnase implements I_RozhraniAlgoritmus{
+public static boolean z = false;
+@Override
+    public void Algoritmus() {
+        z = true;
+        //Pomocná proměná pro ","
+        TlacitkoCarka.y=true;
+        //Přesun z jTextField2 na jTextField1    
+        View.jTextField2.setText(View.jTextField2.getText()+View.jTextField1.getText());
+        View.jTextField1.setText("0");
+        //Javascript na vypočtění výsledku
+        ScriptEngineManager mgr = new ScriptEngineManager();
+        ScriptEngine engine = mgr.getEngineByName("JavaScript");
+        Double F;
+        int X;
+        try{
+            F =  (Double) engine.eval(View.jTextField2.getText());
+            View.jTextField1.setText(String.valueOf(F));
+        }catch(Exception e){
+            try {
+                X = (int) engine.eval(View.jTextField2.getText());
+                View.jTextField1.setText(String.valueOf(X));
+            }catch (ScriptException ex) {
+            }
+        }
+    }
+   }
