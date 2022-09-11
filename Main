@@ -1,0 +1,15 @@
+package main;
+import Okno.View;
+public class Main {
+    public static void main(String[] args) {
+        View okno=new View();
+        new View().setVisible(true);
+    }
+    /*1) superTlacitko = to co vidime ve view, zpracovava algoritmy ruznych trid a dava je do Buttonu( extends JButton)
+      2) I_RozhraniAlgoritmu = rozhrani ktere posila informace superTlacitku
+      3) View = v Customize kod priradit ActionListener ktery jsme vytvorili v superTlacitku
+      4) algoritmy v tridach = pristupuji k JTextFieldu, ten superTlacitko neni, JTextField.setText()....
+      4.5) tridy nahrazuji model ( krom cisel ), vse se pak vypocita v rovnase divokym javaSriptem
+      5) jTextfield1 a 2 maji implementovany actionListener v customize code, 2 kopiruje 1
+    */
+}
