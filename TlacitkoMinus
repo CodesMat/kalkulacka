@@ -1,0 +1,31 @@
+package model;
+
+import Okno.View;
+
+public class TlacitkoMinus implements I_RozhraniAlgoritmus
+{
+
+    @Override
+    public void Algoritmus() {
+        //Pokud bylo stisknuto rovnase vymaže jTextField2
+        if (TlacitkoRovnase.z==true){   
+        View.jTextField2.setText(" ");
+        }
+        //Pokud je poslední znam "," odstraní se
+        if(View.jTextField1.getText().substring(View.jTextField1.getText().length()-1).equals(".")){
+            View.jTextField1.setText(View.jTextField1.getText().substring(0, View.jTextField1.getText().length()-1));
+        }
+        //Pokud text v jTextField1 začíná "-" dá se obsah do závorky
+        if(View.jTextField1.getText().substring(0, 1).equals("-"))
+        {
+            View.jTextField1.setText("("+View.jTextField1.getText()+")");
+        }
+        //Přesun z jTextField2 na jTextField1    
+        View.jTextField2.setText(View.jTextField2.getText()+View.jTextField1.getText()+" - ");
+        View.jTextField1.setText("0");
+        //Pomocná proměná pro "," a "="
+        TlacitkoCarka.y=true;
+        TlacitkoRovnase.z=false;
+    }
+    
+}
