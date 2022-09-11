@@ -1,0 +1,20 @@
+package model;
+
+import Okno.View;
+
+public class TlacitkoCarka implements I_RozhraniAlgoritmus{
+public static boolean y = true;
+    @Override
+    public void Algoritmus() {
+        if (y) {
+            for(int i=1; i<=View.jTextField1.getText().length(); i++){
+                if(View.jTextField1.getText().substring(i).equals(".")){
+                    y=false;
+                    return;
+                }  
+            }   
+            View.jTextField1.setText(View.jTextField1.getText()+".");
+            y=false;
+        }   
+    }
+}
