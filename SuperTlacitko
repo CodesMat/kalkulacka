@@ -1,0 +1,45 @@
+package Tlacitka;
+import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.KeyStroke;
+import model.I_RozhraniAlgoritmus;
+import model.TlacitkoPlus;
+
+public final class SuperTlacitko extends JButton {
+    //Vlastnosti
+    private I_RozhraniAlgoritmus Strategie;
+    //Konstruktor
+    public SuperTlacitko(){
+        
+    }
+    public SuperTlacitko(String text , int key , I_RozhraniAlgoritmus startovaciAlgoritmus){ 
+        super(text);
+        Strategie=startovaciAlgoritmus;
+        ActionListener actionListener = new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent ae){
+                spustAlgoritmus();
+            }
+        };
+        this.addActionListener(actionListener);
+        this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(key, 0, false), JComponent.WHEN_FOCUSED);
+      this.setFont(new java.awt.Font("Tahoma", 1, 20));
+        this.setBackground(new java.awt.Color(179, 0, 0));
+       this.setForeground(Color.white);
+    }
+    @Override
+    public void addActionListener(ActionListener l){
+        super.addActionListener(l);
+    }
+    //Navrhový vzor strategie
+    public void zmenaAlgoritmu(I_RozhraniAlgoritmus novyAlgortimus){
+        this.Strategie=novyAlgortimus;
+    }
+    public void spustAlgoritmus(){
+        Strategie.Algoritmus();
+    }   
+}
