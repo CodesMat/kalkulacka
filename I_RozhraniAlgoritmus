@@ -1,0 +1,6 @@
+package model;
+
+public interface I_RozhraniAlgoritmus {
+    public void Algoritmus();
+    
+}
