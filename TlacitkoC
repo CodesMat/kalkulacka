@@ -1,0 +1,14 @@
+package model;
+
+import Okno.View;
+
+public class TlacitkoC implements I_RozhraniAlgoritmus
+{
+
+    @Override
+    public void Algoritmus() {
+        View.jTextField1.setText("0");
+        View.jTextField2.setText("");
+    }
+    
+}
