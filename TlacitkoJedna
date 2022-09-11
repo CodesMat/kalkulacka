@@ -1,0 +1,18 @@
+//vsechny jsou stejny dej jen jiny pismenko
+package model.Cisla;
+
+import Okno.View;
+import model.I_RozhraniAlgoritmus;
+
+public class TlacitkoJedna implements I_RozhraniAlgoritmus{
+
+    @Override
+    public void Algoritmus() {
+        if (View.jTextField1.getText().equals("0")) {
+            View.jTextField1.setText("1");  
+        }else{
+            View.jTextField1.setText(View.jTextField1.getText()+"1");
+        }
+    }
+    
+}
